@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPT Code Review</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/eclipse.css"
-        integrity="sha512-iN8WlRyRvXJ/9jK6F3qWmfAKnASvWhj6xPYU6mHcW12rU6vnn+vXaLj6JZpwY62ZUZh2OAYi6UdLRS8pT6HrOw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/eclipse.min.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/theme/dracula.min.css"
         integrity="sha512-SaM8i03nKsZCChkZs1BZI8bTJJiY72D1QykyT3TNX8/0kIDczmv1/2/GZc3qZ0bsctMfn6YREU6iRj6dX9Oulw=="
@@ -24,8 +23,11 @@
 <body>
     <div style="text-align: center;">
         <br>
-        <h1>GPT
-            <br>Code Review
+        <h1>
+            Code Review
+            <div style="font-size: 2rem">
+                with GPT
+            </div>
         </h1>
     </div>
     <span>
@@ -37,7 +39,7 @@
                 <div class="carbon-header">
                     <div class="carbon-title">My code</div>
                     <div class="carbon-actions">
-                        <button class="carbon-action copy-btn">Copy</button>
+                        <button class="carbon-action">Let's Review</button>
                         <button class="carbon-action">Export</button>
                     </div>
                 </div>
@@ -86,13 +88,25 @@
     </script>
 
     <script>
-        const editor = document.getElementById("editor");
-        editor.addEventListener("input", () => {
-            // codemirror 내용이 변경될 때마다 container의 높이 업데이트
-            const container = document.querySelector(".container");
-            container.style.height = "auto"; // 높이를 자동으로 설정
-            const height = container.offsetHeight; // container의 높이를 가져와서
-            container.style.height = height + "px"; // container의 높이를 설정
+        // Get the form-container element
+        const formContainer = document.querySelector('.form-container');
+
+        // Add a click event listener to the "Let's Review" button
+        const reviewBtn = document.querySelector('.carbon-action');
+        reviewBtn.addEventListener('click', () => {
+            // Use html2canvas to capture a screenshot of the form-container element
+            html2canvas(formContainer).then(canvas => {
+                // Create a data URL from the canvas
+                const dataURL = canvas.toDataURL();
+                // Use the "share" API to share the image URL
+                navigator.share({
+                    title: 'My code review',
+                    text: 'Check out my code review!',
+                    url: dataURL
+                })
+                    .then(() => console.log('Shared successfully!'))
+                    .catch(error => console.error('Error sharing:', error));
+            });
         });
     </script>
 </body>
