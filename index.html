@@ -3,35 +3,36 @@
 
 <head>
     <link rel="stylesheet" href="./index.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap">
-
-    <!-- CodeMirror 스타일시트 추가 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/eclipse.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/fold/foldgutter.min.css"
-        integrity="sha512-y9eJhD/c+dTScT3/3MrbfNxfdpwM/mZI/DG/gPpX9tJ4G7V+jlOd0gK1CQx1QQSx/DdZbPmDkj7V9XJL4nV7g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/fold/foldcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/fold/foldgutter.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/fold/brace-fold.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/fold/comment-fold.min.js"></script>
-
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPT Code Review</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/eclipse.css"
+        integrity="sha512-iN8WlRyRvXJ/9jK6F3qWmfAKnASvWhj6xPYU6mHcW12rU6vnn+vXaLj6JZpwY62ZUZh2OAYi6UdLRS8pT6HrOw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/theme/dracula.min.css"
+        integrity="sha512-SaM8i03nKsZCChkZs1BZI8bTJJiY72D1QykyT3TNX8/0kIDczmv1/2/GZc3qZ0bsctMfn6YREU6iRj6dX9Oulw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/javascript/javascript.min.js"></script>
 </head>
 
 <body>
-    <div>
-        <h3>GPT Code Review</h3>
+    <div style="text-align: center;">
+        <br>
+        <h1>GPT
+            <br>Code Review
+        </h1>
     </div>
     <span>
     </span>
     <div class="container">
         <!-- client code -->
-        <div class="advises-container">
+        <div class="form-container">
             <div class="carbon">
                 <div class="carbon-header">
                     <div class="carbon-title">My code</div>
@@ -41,39 +42,59 @@
                     </div>
                 </div>
                 <div class="carbon-input-container">
-                    <form>
-                        <textarea id="carbon-input" class="carbon-input"></textarea>
-                        <div class="carbon-codemirror"></div>
-                    </form>
+                    <div id="carbon-input" class="carbon-input"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="advises-container">
+            <div class="carbon">
+                <div class="carbon-header">
+                    <div class="carbon-title">GPT code</div>
+                    <div class="carbon-actions">
+                        <button class="carbon-action copy-btn">Copy</button>
+                        <button class="carbon-action">Export</button>
+                    </div>
+                </div>
+                <div class="carbon-input-container">
+                    <div id="carbon-gpt-input" class="carbon-gpt-input"></div>
                 </div>
             </div>
         </div>
     </div>
-</body>
-<!-- <script>
-    const copyBtn = document.querySelector('.copy-btn');
-    const codeInput = document.querySelector('.carbon-gpt-input');
+    <br>
+    <br>
 
-    copyBtn.addEventListener('click', () => {
-        codeInput.select();
-        document.execCommand('copy');
-        alert('코드가 복사되었습니다.');
-    });
-</script> -->
 
-<script>
-    // CodeMirror 초기화
-    var textarea = document.getElementById('carbon-input');
-    var editor = CodeMirror(function (elt) {
-        textarea.parentNode.insertBefore(elt, textarea);
-    }, {
-        value: textarea.value,
-        mode: 'javascript',
-        lineNumbers: true,
-        theme: 'material'
-    });
-    textarea.style.display = 'none';
-</script>
+
+    <script>
+        // CodeMirror 적용
+        var editor = CodeMirror(document.getElementById("carbon-input"), {
+            mode: "javascript",
+            theme: "eclipse",
+            lineWrapping: true,
+        });
+    </script>
+
+    <script>
+        // CodeMirror 적용
+        var editor = CodeMirror(document.getElementById("carbon-gpt-input"), {
+            mode: "javascript",
+            theme: "dracula",
+            lineWrapping: true,
+        });
+    </script>
+
+    <script>
+        const editor = document.getElementById("editor");
+        editor.addEventListener("input", () => {
+            // codemirror 내용이 변경될 때마다 container의 높이 업데이트
+            const container = document.querySelector(".container");
+            container.style.height = "auto"; // 높이를 자동으로 설정
+            const height = container.offsetHeight; // container의 높이를 가져와서
+            container.style.height = height + "px"; // container의 높이를 설정
+        });
+    </script>
 </body>
 
 </html>

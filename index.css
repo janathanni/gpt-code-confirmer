@@ -1,60 +1,60 @@
-h3 {
+@font-face {
+  font-family: "Ubuntu Mono";
+  src: url("./UbuntuMono-Regular.ttf");
+}
+
+body {
+  background-color: #ffffff5b;
+  color: #fdfdfd;
+  font-family: "Ubuntu Mono", monospace;
+  align-content: center;
+}
+
+h1 {
+  color: #000000;
   text-align: center;
   font-size: 3em;
+  font-family: "Ubuntu Mono", monospace !important;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-body {
-  background-color: #232f34;
-  color: #fff;
-  font-family: "Nunito Sans", sans-serif;
-  align-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
   .container {
     flex-direction: row;
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 2rem;
   }
 
-  .form-container {
-    width: 50%;
-    margin: 1%;
-    padding: 2rem;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-  }
-
+  .form-container,
   .advises-container {
+    display: inline-block;
+    box-sizing: border-box;
     width: 50%;
-    margin: 1%;
-    padding: 2rem;
-    background-color: #f7f7f7;
-    border-radius: 10px;
+    max-width: 50%;
+    margin: 5%;
+    vertical-align: top;
   }
 }
 
 .form-container,
 .advises-container {
-  width: 100%;
-  padding: 2rem;
+  width: 80%;
+  margin: 5%;
   background-color: #f7f7f7;
-  border-radius: 10px;
+  border-radius: 50px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 .carbon {
+  width: 100%;
   border-radius: 10px;
   border: none;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   font-family: "Fira Code", monospace;
-  margin-bottom: 2rem;
   overflow: hidden;
   background-color: #f1f1f1;
 }
@@ -64,18 +64,17 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  background-color: #27ae60;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  background-color: #2d8359;
 }
 
 .carbon-title {
-  font-weight: bold;
   font-size: 1.5rem;
+  font-family: "Ubuntu Mono", monospace !important;
 }
 
 .carbon-actions {
   display: flex;
+  font-family: "Ubuntu Mono", monospace !important;
 }
 
 .carbon-action {
@@ -86,6 +85,7 @@ body {
   border-radius: 10px;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  font-family: "Ubuntu Mono", monospace !important;
 }
 
 .carbon-action:hover {
@@ -94,10 +94,13 @@ body {
 
 .carbon-input-container {
   position: relative;
-}
-.carbon-input {
   width: 100%;
-  height: 100%;
+  background-color: #fff;
+  font-family: "Ubuntu Mono", monospace !important;
+}
+
+.carbon-input {
+  width: 90%;
   border: none;
   padding: 1rem;
   margin: auto;
@@ -105,26 +108,35 @@ body {
   resize: none;
   display: block;
   border: none;
-  background-color: #fff;
-  color: #000;
+  font-family: "Ubuntu Mono", monospace !important;
 }
 
 .carbon-codemirror {
   position: absolute;
+  width: 100%;
+  resize: none;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  font-family: "Ubuntu Mono", monospace !important;
+}
+
+.CodeMirror-line {
+  font-family: "Ubuntu Mono", monospace !important;
+}
+
+.CodeMirror-scroll {
+  overflow: hidden !important;
 }
 
 .carbon-gpt-input {
-  width: 100%;
+  width: 90%;
   border: none;
-  padding: 2rem;
-  background-color: #f7f7f7;
-  font-size: 1.5rem;
+  padding: 1rem;
+  margin: auto;
+  font-size: 14px;
   resize: none;
-  border-radius: 10px;
-  color: #000;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  display: block;
+  border: none;
 }
