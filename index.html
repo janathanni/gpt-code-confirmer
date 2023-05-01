@@ -18,9 +18,14 @@
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/javascript/javascript.min.js"></script>
+
+    <script type="text/javascript" src="call_gpt.js"></script>
+
 </head>
 
 <body>
+    <br>
+    <br>
     <div style="text-align: center;">
         <br>
         <h1>
@@ -29,6 +34,11 @@
                 with GPT
             </div>
         </h1>
+        <h3>
+            <p>you can review your code with GPT</p>
+            <p>Let's enjoy GPT's code!</p>
+        </h3>
+        <br>
     </div>
     <span>
     </span>
@@ -37,9 +47,9 @@
         <div class="form-container">
             <div class="carbon">
                 <div class="carbon-header">
-                    <div class="carbon-title">My code</div>
+                    <div class="carbon-title">Your code</div>
                     <div class="carbon-actions">
-                        <button class="carbon-action">Let's Review</button>
+                        <button class="carbon-action" onclick="reviewGPT(editor.getValue())">Let's Review</button>
                         <button class="carbon-action">Export</button>
                     </div>
                 </div>
@@ -79,35 +89,8 @@
     </script>
 
     <script>
-        // CodeMirror 적용
-        var editor = CodeMirror(document.getElementById("carbon-gpt-input"), {
-            mode: "javascript",
-            theme: "dracula",
-            lineWrapping: true,
-        });
-    </script>
-
-    <script>
-        // Get the form-container element
-        const formContainer = document.querySelector('.form-container');
-
-        // Add a click event listener to the "Let's Review" button
-        const reviewBtn = document.querySelector('.carbon-action');
-        reviewBtn.addEventListener('click', () => {
-            // Use html2canvas to capture a screenshot of the form-container element
-            html2canvas(formContainer).then(canvas => {
-                // Create a data URL from the canvas
-                const dataURL = canvas.toDataURL();
-                // Use the "share" API to share the image URL
-                navigator.share({
-                    title: 'My code review',
-                    text: 'Check out my code review!',
-                    url: dataURL
-                })
-                    .then(() => console.log('Shared successfully!'))
-                    .catch(error => console.error('Error sharing:', error));
-            });
-        });
+        const response = reviewGPT(editor.getValue());
+        console.log(response);
     </script>
 </body>
 
