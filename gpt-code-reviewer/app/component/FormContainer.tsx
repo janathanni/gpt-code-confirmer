@@ -27,7 +27,7 @@ export default function FormContainer({ codeHandler }: Props) {
                 <div className="carbon-header">
                     <div className="carbon-title">Your Code</div>
                     <div className="carbon-actions">
-                        <button className="carbon-action" onClick={submitCode}>Let's Review</button>
+                        <button className="carbon-action" onClick={submitCode}>Review&FeedBack</button>
                         <button className="carbon-action">Export</button>
                     </div>
                 </div>

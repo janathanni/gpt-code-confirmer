@@ -4,9 +4,10 @@ import { xcodeLight } from "@uiw/codemirror-theme-xcode";
 
 interface Props{
   code : string;
+  feedBack : string;
 }
 
-export default function AdvisesContainer({code} : Props){
+export default function AdvisesContainer({code, feedBack} : Props){
   return (
       <div className="form-container">
           <div className="carbon">
