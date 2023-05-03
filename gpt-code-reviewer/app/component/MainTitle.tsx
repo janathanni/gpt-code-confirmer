@@ -1,5 +1,3 @@
-import "./index.css";
-
 export default function MainTitle() {
     return (
         <div className="main-title">

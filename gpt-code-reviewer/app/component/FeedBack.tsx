@@ -3,8 +3,9 @@ interface Props {
 }
 
 export default function FeedBack({ feedBack }: Props) {
-    const processedFeedBack = feedBack.split(":")[1];
-    return <div>
-        {feedBack}
+    return( 
+    <div className="feedback-container">
+        {`${feedBack}`}
     </div>
+    );
 }

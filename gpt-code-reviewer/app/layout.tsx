@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import './globals.css';
+import './index.css';
 import localfont from 'next/font/local';
 
 const monoFont = localfont(
