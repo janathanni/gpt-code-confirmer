@@ -1,6 +1,6 @@
 
 # GPT 코드 리뷰어
-<center><img src="mdSource/title.png" width="80%"> </center>
+<center><img src="./mdSource/title.png" width="80%"> </center>
 
 <br>
 
