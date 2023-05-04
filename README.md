@@ -1,6 +1,6 @@
 
 # GPT 코드 리뷰어
-<center><img src="https://user-images.githubusercontent.com/79269207/236109581-f28f2c6f-16e0-490b-9a62-611c48719747.PNG" width="80%"> </center>
+<p><img src="https://user-images.githubusercontent.com/79269207/236109581-f28f2c6f-16e0-490b-9a62-611c48719747.PNG" width="80%"> </p>
 
 <br>
 
@@ -8,13 +8,13 @@
 OpenAI API를 이용하여 gpt-3.5-turbo에게 코드가 담긴 프롬프트를 전달하고, 수정된 코드 및 그에 대한 피드백을 받을 수 있습니다. 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/79269207/236109681-9ba454a9-0109-48ba-97a9-4d91aba1fb9e.PNG" width="80%" alt="작성한 코드"> </p>
-<center> 내가 작성한 코드</center>
+<p> 내가 작성한 코드</p>
 <br>
-<center><img src="https://user-images.githubusercontent.com/79269207/236109766-f066fd0f-6158-4eef-9d05-e78b6e6a011b.PNG" width="80%" alt="GPT가 작성해준 코드"> </center>
-<center> GPT가 작성한 코드</center>
+<p><img src="https://user-images.githubusercontent.com/79269207/236109766-f066fd0f-6158-4eef-9d05-e78b6e6a011b.PNG" width="80%" alt="GPT가 작성해준 코드"> </p>
+<p> GPT가 작성한 코드</p>
 <br>
-<center><img src="https://user-images.githubusercontent.com/79269207/236109722-162d2a71-be09-450d-80c3-7a477c17776c.png" alt="GPT가 작성해준 피드백"> </center>
-<center> GPT가 써준 리뷰</center>
+<p><img src="https://user-images.githubusercontent.com/79269207/236109722-162d2a71-be09-450d-80c3-7a477c17776c.png" alt="GPT가 작성해준 피드백"> </p>
+<p> GPT가 써준 리뷰</p>
 <br>
 
 
