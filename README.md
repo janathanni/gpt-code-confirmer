@@ -7,7 +7,7 @@
 ## 프로젝트 소개 
 OpenAI API를 이용하여 gpt-3.5-turbo에게 코드가 담긴 프롬프트를 전달하고, 수정된 코드 및 그에 대한 피드백을 받을 수 있습니다. 
 
-<center><img src="https://user-images.githubusercontent.com/79269207/236109681-9ba454a9-0109-48ba-97a9-4d91aba1fb9e.PNG" width="80%" alt="작성한 코드"> </center>
+<p align="center"><img src="https://user-images.githubusercontent.com/79269207/236109681-9ba454a9-0109-48ba-97a9-4d91aba1fb9e.PNG" width="80%" alt="작성한 코드"> </p>
 <center> 내가 작성한 코드</center>
 <br>
 <center><img src="https://user-images.githubusercontent.com/79269207/236109766-f066fd0f-6158-4eef-9d05-e78b6e6a011b.PNG" width="80%" alt="GPT가 작성해준 코드"> </center>
