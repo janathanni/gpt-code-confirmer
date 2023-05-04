@@ -30,12 +30,14 @@ export default function FormContainer({ codeHandler }: Props) {
             <button className="carbon-action" onClick={submitCode}>
               Review
             </button>
-            <button className="carbon-action">Export</button>
+            <button className="carbon-action">Copy</button>
           </div>
         </div>
         <div className="carbon-input-container">
-          <div id="carbon-input" className="carbon-input"></div>
-          <CodeMirror onChange={onChange} value={code} theme={xcodeLight} />
+          <CodeMirror onChange={onChange} value={code} theme={xcodeLight} width= "auto"
+            basicSetup={{
+              lineNumbers: false
+            }} />
         </div>
       </div>
     </div>
