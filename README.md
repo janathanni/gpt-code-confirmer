@@ -1,6 +1,6 @@
 
 # GPT 코드 리뷰어
-<center><img src="./mdSource/title.png" width="80%"> </center>
+<center><img src="https://user-images.githubusercontent.com/79269207/236109581-f28f2c6f-16e0-490b-9a62-611c48719747.PNG" width="80%"> </center>
 
 <br>
 
