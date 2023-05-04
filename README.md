@@ -38,7 +38,7 @@ $ cd gpt-code-reviewer
 //depencdency에 있는 모듈들 다운로드 
 $ npm install 
 ```
-Containerse.tsx에서 api key 넣기
+Containerse.tsx에서 api key 넣기(혹은 env파일 작성 후, process.env 이용)
 ```
 export default function Containers() {
     ...
