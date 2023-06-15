@@ -24,12 +24,6 @@ Next.js, CodeMirror
 <br>
 
 ## 프로젝트 실행법
-사전 숙지 사항<br>
-1. nodeJS 깔려 있어야 함 
-2. next.js 깔려 있어야 함 
-<br>
-<br>
-
 ```
 //프로젝트 폴더 들어가기 
 $ cd gpt-code-reviewer
